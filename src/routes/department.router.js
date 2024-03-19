@@ -16,7 +16,10 @@ router.route('/:id')
     .get(department.read)
     .put(department.update)
     .patch(department.update)
-    .delete(department.delete)    
+    .delete(department.delete)
+
+router.route('/:id/personnels', department.personnels)    
+
 
 /* ------------------------------------------------------- */
 module.exports = router
