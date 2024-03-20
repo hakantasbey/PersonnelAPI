@@ -5,19 +5,19 @@
 const router = require('express').Router()
 /* ------------------------------------------------------- */
 
-const personnel = require('../controllers/personnel.controller')
+const token = require('../controllers/token.controller')
 
-// URL: /personnels
+// URL: /tokens
 
 router.route('/')
-    .get(personnel.list)
-    .post(personnel.create)
+    .get(token.list)
+    .post(token.create)
 
 router.route('/:id')
-    .get(personnel.read)
-    .put(personnel.update)
-    .patch(personnel.update)
-    .delete(personnel.delete)
+    .get(token.read)
+    .put(token.update)
+    .patch(token.update)
+    .delete(token.delete)
 
 /* ------------------------------------------------------- */
 module.exports = router
