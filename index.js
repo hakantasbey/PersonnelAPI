@@ -46,7 +46,7 @@ const morgan = require('morgan')
 //? Write to log file:
 const fs = require('node:fs')   //* built-in modul
 app.use(morgan('combined',{
-    stream: fs.createWriteStream('./access.log')
+    stream: fs.createWriteStream('./access.log', { flags:'a+'})
 }))
 
 
