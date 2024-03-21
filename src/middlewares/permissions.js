@@ -41,4 +41,18 @@ module.exports = {
             throw new Error('NoPermission: You must login and to be Admin or Department Lead.')
         }
     },
+
+    isAdminOrOwn: (req, res, next) => {
+
+        const personnelId = req.params?.id
+
+        if(
+            req.user && req.user.isActive && ( req.user.isAdmin || req.user._id == personnelId)
+        ) {
+            next()
+        } else {
+            res.errorStatusCode = 403
+            throw new Error('NoPermission: You must login and to be Admin or Record Owner.')
+        }
+    }
 }
