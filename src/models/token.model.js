@@ -1,38 +1,38 @@
 "use strict";
 /* -------------------------------------------------------
     EXPRESS - Personnel API
-------------------------------------------------------- */  
-const {mongoose} = require('../configs/dbConnection')
-/*--------------------------------------------------------*
+------------------------------------------------------- */
+const { mongoose } = require('../configs/dbConnection')
+/* ------------------------------------------------------- *
 {
     "userId": "65343222b67e9681f937f001",
     "token": "...tokenKey..."
-  }
+}
 /* ------------------------------------------------------- */
-// Tonken Model:
+// Token Model:
 
 const TokenSchema = new mongoose.Schema({
 
-    userId:{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Personnel',   // 'User'
+        ref: 'Personnel', // 'User'
         required: true,
-        index: true
+        index: true,
+        unique: true,
     },
 
-    token:{
+    token: {
         type: String,
         trim: true,
         required: true,
         index: true,
         unique: true,
-    }
+    },
 
-},{
-    collection: 'token',
+}, {
+    collection: 'tokens',
     timestamps: true
 })
 
 /* ------------------------------------------------------- */
-
 module.exports = mongoose.model('Token', TokenSchema)
