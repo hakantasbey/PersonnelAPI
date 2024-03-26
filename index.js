@@ -90,7 +90,7 @@ app.use('/documents/redoc', redoc({
 app.use(express.json())
 
 // Logging:
-// app.use(require('./src/middlewares/logging'))
+// app.use(require('./src/middlewares/logging'))  //* Vercel de deploy ederken log kaydi tuttugu icin hata veriyordu bu yuzden yoruma aldik.
 
 // SessionsCookies:
 app.use(require('cookie-session')({ secret: process.env.SECRET_KEY }))
